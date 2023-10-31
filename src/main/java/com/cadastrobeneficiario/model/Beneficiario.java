@@ -38,7 +38,8 @@ public class Beneficiario {
     private LocalDate dataInclusão = LocalDate.now();
     private LocalDate dataAtualizacao;
 
-    @OneToMany(mappedBy = "beneficiario", cascade = CascadeType.ALL)
+    @OneToMany(targetEntity=Documento.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "beneficiarioId", referencedColumnName = "id")
     @JsonIgnoreProperties("beneficiario")
     private List<Documento> documentos = new ArrayList<>();
 

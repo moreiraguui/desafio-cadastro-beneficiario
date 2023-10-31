@@ -32,8 +32,9 @@ public class Documento {
     private LocalDate dataInclusao = LocalDate.now();
     private LocalDate dataAtualizacao;
 
-    @ManyToOne
-    @JsonIgnoreProperties("documento")
+    @ManyToOne(targetEntity = Beneficiario.class)
+    @JoinColumn(name = "beneficiarioId")
+    @JsonIgnoreProperties("documentos")
     private Beneficiario beneficiario;
 
 }
