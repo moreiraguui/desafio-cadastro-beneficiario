@@ -72,12 +72,12 @@ PUT -> http://localhost:8080/beneficiarios/{idBeneficiario}
     "dataNascimento": "02/02/0002",
     "documentos": [
         {
-            "id": "eeed05a6-2615-4bee-af35-8ff2d17bc45a",
+            "id": "{Pegue o respectivo ID gerado na requisição POST e insira aqui}",
             "tipoDocumento": "RG",
             "descricao": "11111111-11"
         },
         {
-            "id": "9997f5a6-e30c-48aa-acaa-d96e46942e96",
+            "id": "{Pegue o respectivo ID gerado na requisição POST e insira aqui}",
             "tipoDocumento": "Reservista",
             "descricao": "22222222222222222"
         }
