@@ -1,29 +1,29 @@
 package com.cadastrobeneficiario.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+import lombok.*;
+import org.hibernate.annotations.Type;
 import org.springframework.data.relational.core.mapping.Table;
 
-import javax.annotation.processing.Generated;
-import java.time.LocalDate;
 
-@Entity
-@Getter
-@Setter
+import java.rmi.server.UID;
+import java.time.LocalDate;
+import java.util.UUID;
+
+
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "DOCUMENTOS")
+@Getter
+@Setter
+@Entity
+@Table(name = "documento")
 public class Documento {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(generator = "UUID")
+    private UUID id;
 
     private String tipoDocumento;
 
@@ -31,4 +31,9 @@ public class Documento {
 
     private LocalDate dataInclusao = LocalDate.now();
     private LocalDate dataAtualizacao;
+
+    @ManyToOne
+    @JsonIgnoreProperties("documento")
+    private Beneficiario beneficiario;
+
 }
