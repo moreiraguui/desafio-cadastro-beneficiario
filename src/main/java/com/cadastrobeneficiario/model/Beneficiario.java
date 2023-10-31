@@ -1,16 +1,12 @@
 package com.cadastrobeneficiario.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonTypeId;
-import jakarta.annotation.Generated;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.cglib.core.Local;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDate;
@@ -30,8 +26,11 @@ public class Beneficiario {
     @GeneratedValue(generator = "UUID")
     private UUID id;
 
+    @NotBlank
     private String nome;
+    @NotBlank
     private String telefone;
+    @NotBlank
     private String dataNascimento;
 
     @Column(updatable = false)

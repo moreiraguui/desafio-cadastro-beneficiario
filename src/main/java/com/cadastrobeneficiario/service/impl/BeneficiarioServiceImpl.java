@@ -3,14 +3,12 @@ package com.cadastrobeneficiario.service.impl;
 import com.cadastrobeneficiario.model.Beneficiario;
 import com.cadastrobeneficiario.model.Documento;
 import com.cadastrobeneficiario.repository.BeneficiarioRepository;
-import com.cadastrobeneficiario.repository.DocumentoRepository;
 import com.cadastrobeneficiario.service.BeneficiarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,9 +17,6 @@ public class BeneficiarioServiceImpl implements BeneficiarioService {
 
     @Autowired
     private BeneficiarioRepository beneficiarioRepository;
-
-    @Autowired
-    private DocumentoRepository documentoRepository;
 
     public Beneficiario createBeneficiario(Beneficiario beneficiario) {
         beneficiario.setDataInclusão(LocalDate.now());
@@ -34,10 +29,10 @@ public class BeneficiarioServiceImpl implements BeneficiarioService {
 
     public Beneficiario updateBeneficiarioById(Beneficiario beneficiario, UUID id) {
         List<Documento> documentoList = beneficiario.getDocumentos();
-        documentoList.forEach(documento -> {
-            documento.setDataAtualizacao(LocalDate.now());
+        documentoList.forEach(doc -> {
+            doc.setDataAtualizacao(LocalDate.now());
         });
-                return beneficiarioRepository.findById(id)
+        return beneficiarioRepository.findById(id)
                 .map(beneficiarioUpdate -> {
                     beneficiarioUpdate.setNome(beneficiario.getNome());
                     beneficiarioUpdate.setTelefone(beneficiario.getTelefone());

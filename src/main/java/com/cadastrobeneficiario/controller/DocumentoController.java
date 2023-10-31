@@ -2,7 +2,7 @@ package com.cadastrobeneficiario.controller;
 
 import com.cadastrobeneficiario.model.Documento;
 import com.cadastrobeneficiario.service.DocumentoService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +25,7 @@ public class DocumentoController {
     }
 
     @GetMapping("/{beneficiarioId}")
-    public ResponseEntity<List<Documento>> getDocumentosByBeneficiarioId(@PathVariable UUID beneficiarioId) {
+    public ResponseEntity<List<Documento>> getDocumentosByBeneficiarioId(@Valid @PathVariable UUID beneficiarioId) {
         Optional<List<Documento>> documentos = documentoService.getDocumentosByBeneficiarioId(beneficiarioId);
 
         return documentos.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
