@@ -10,12 +10,14 @@ API para fazer o cadastro de um beneficiario com seus respectivos documentos.
 - [Spring MVC](https://docs.spring.io/spring-framework/reference/web/webmvc.html)
 - [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
 - [Banco H2 Console](https://www.h2database.com/html/main.html)
+- [SpringDoc OpenAPI 3](https://springdoc.org/v2/#spring-webflux-support)
 
 ## Práticas adotadas
 
 - API REST
 - Consultas com Spring Data JPA
 - Injeção de Dependências
+- Geração automática do Swagger com a OpenAPI 3
   
 ## Como Executar
 
@@ -31,6 +33,7 @@ $ java -jar target/cadastro-beneficiario-0.0.1-SNAPSHOT.jar
 - Ou com sua IDE preferida, fazer o build manualmente.
 
 A API poderá ser acessada em [localhost:8080](http://localhost:8080).
+O Swagger poderá ser visualizado em [localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 ## API Endpoints
 
