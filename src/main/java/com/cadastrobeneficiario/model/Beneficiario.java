@@ -34,7 +34,7 @@ public class Beneficiario {
     private String dataNascimento;
 
     @Column(updatable = false)
-    private LocalDate dataInclusão = LocalDate.now();
+    private LocalDate dataInclusao = LocalDate.now();
     private LocalDate dataAtualizacao;
 
     @OneToMany(targetEntity=Documento.class,cascade = CascadeType.ALL)

@@ -19,7 +19,6 @@ public class BeneficiarioServiceImpl implements BeneficiarioService {
     private BeneficiarioRepository beneficiarioRepository;
 
     public Beneficiario createBeneficiario(Beneficiario beneficiario) {
-        beneficiario.setDataInclusão(LocalDate.now());
         return beneficiarioRepository.save(beneficiario);
     }
 
